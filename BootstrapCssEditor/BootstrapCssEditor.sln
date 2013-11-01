@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bCCSEditor", "bCCSEditor.csproj", "{BEED1FE6-7CEC-4B95-8D98-A0780BB37D8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapCssEditor", "BootstrapCssEditor.csproj", "{BEED1FE6-7CEC-4B95-8D98-A0780BB37D8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
