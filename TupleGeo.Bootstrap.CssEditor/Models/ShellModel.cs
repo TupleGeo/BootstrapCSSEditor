@@ -8,7 +8,7 @@
 // Version          : 1.0.0
 // Contact Details  : 
 // License          : 
-// Copyright        : GeoValues, 2013
+// Copyright        : TupleGeo, 2013
 //
 // Comments         : 
 #endregion
