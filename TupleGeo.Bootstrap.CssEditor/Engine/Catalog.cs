@@ -124,17 +124,13 @@ namespace TupleGeo.Bootstrap.CssEditor.Engine {
 
       // Key: Views                                          Value: ViewModels
       // ----------------------------------------------------------------------------------------------------
-      // ResultsStatusView                                   ResultsStatusViewModel.
-      //_mappedViewModels.Add(typeof(ResultsStatusView),       typeof(ResultsStatusViewModel));
-      // GeneralOperationsView                               GeneralOperationsViewModel.
-      //_mappedViewModels.Add(typeof(GeneralOperationsView),   typeof(GeneralOperationsViewModel));
-      // TestFilesStructureView                              TestFilesStructureViewModel.
-      //_mappedViewModels.Add(typeof(TestFilesStructureView),  typeof(TestFilesStructureViewModel));
-      // TestShapefileFieldsView                             TestShapefileFieldsViewModel.
-      //_mappedViewModels.Add(typeof(TestShapefileFieldsView), typeof(TestShapefileFieldsViewModel));
-      // DetailResultsView                                   DetailResultsViewModel.
-      //_mappedViewModels.Add(typeof(DetailResultsView),     typeof(DetailResultsViewModel));
-      
+      // ComponentsView                                      ComponentsViewModel.
+      _mappedViewModels.Add(typeof(ComponentsView),          typeof(ComponentsViewModel));
+      // PropertiesView                                      PropertiesViewModel.
+      _mappedViewModels.Add(typeof(PropertiesView),          typeof(PropertiesViewModel));
+      // HtmlPageView                                        HtmlPageViewModel.
+      _mappedViewModels.Add(typeof(HtmlPageView),            typeof(HtmlPageViewModel));
+
       // ShellView                                           ShellViewModel.
       _mappedViewModels.Add(typeof(ShellView),               typeof(ShellViewModel));
     }
@@ -150,17 +146,13 @@ namespace TupleGeo.Bootstrap.CssEditor.Engine {
 
       // Key: ViewModels                                             Value: Models
       // ----------------------------------------------------------------------------------------------------
-      // ResultsStatusViewModel                                      ResultsStatusModel.
-      //_mappedModels.Add(typeof(ResultsStatusViewModel),              typeof(ResultsStatusModel));
-      // GeneralOperationsViewModel                                  GeneralOperationsModel.
-      //_mappedModels.Add(typeof(GeneralOperationsViewModel),          typeof(GeneralOperationsModel));
-      // TestFilesStructureViewModel                                 TestFilesStructureModel.
-      //_mappedModels.Add(typeof(TestFilesStructureViewModel),         typeof(TestFilesStructureModel));
-      // TestShapefileFieldsViewModel                                TestShapefileFieldsViewModel.
-      //_mappedModels.Add(typeof(TestShapefileFieldsViewModel),        typeof(TestShapefileFieldsModel));
-      // DetailResultsViewModel                                      DetailResultsModel.
-      //_mappedModels.Add(typeof(DetailResultsViewModel),            typeof(DetailResultsModel));
-      
+      // ComponentsViewModel                                         ComponentsModel.
+      _mappedModels.Add(typeof(ComponentsViewModel),                 typeof(ComponentsModel));
+      // PropertiesViewModel                                         PropertiesModel.
+      _mappedModels.Add(typeof(PropertiesViewModel),                 typeof(PropertiesModel));
+      // HtmlPageViewModel                                           HtmlPageModel.
+      _mappedModels.Add(typeof(HtmlPageViewModel),                   typeof(HtmlPageModel));
+
       // ShellViewModel                                              ShellModel.
       _mappedModels.Add(typeof(ShellViewModel),                      typeof(ShellModel));
     }

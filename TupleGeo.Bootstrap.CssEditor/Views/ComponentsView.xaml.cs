@@ -1,9 +1,9 @@
 ﻿
 #region Header
-// Title Name       : ShellView.
+// Title Name       : ComponentsView.
 // Member of        : TupleGeo.Bootstrap.CssEditor.exe
-// Description      : The shell view of the application.
-// Created by       : 02/11/2013 03:14, Vasilis Vlastaras.
+// Description      : The Bootstrap components view.
+// Created by       : 02/11/2013 08:09, Vasilis Vlastaras.
 // Updated by       : 
 // Version          : 1.0.0
 // Contact Details  : 
@@ -27,6 +27,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TupleGeo.Bootstrap.CssEditor.Engine;
 using TupleGeo.Bootstrap.CssEditor.ViewModels;
@@ -37,16 +38,16 @@ using TupleGeo.Mvvm;
 namespace TupleGeo.Bootstrap.CssEditor.Views {
 
   /// <summary>
-  /// The shell view of the application.
+  /// The Bootstrap components view.
   /// </summary>
-  public sealed partial class ShellView : Window, IView {
+  public sealed partial class ComponentsView : UserControl, IView {
 
     #region Constructors - Destructors
 
     /// <summary>
-    /// Initializes the <see cref="ShellView"/>.
+    /// Initializes the <see cref="ComponentsView"/>.
     /// </summary>
-    public ShellView() {
+    public ComponentsView() {
       InitializeComponent();
       InitializeView();
     }
@@ -68,8 +69,8 @@ namespace TupleGeo.Bootstrap.CssEditor.Views {
         // Make sure this executes in runtime.
         if (!DesignerProperties.GetIsInDesignMode(this)) {
           // The viewmodel of this view acts as a datacontext. Bind the viewmodel here.
-          ShellViewModel shellViewModel = (ShellViewModel)((IViewModel)(Catalog.GetViewModel(this.GetType())));
-          this.DataContext = shellViewModel;
+          ComponentsViewModel componentsViewModel = (ComponentsViewModel)((IViewModel)(Catalog.GetViewModel(this.GetType())));
+          this.DataContext = componentsViewModel;
           
           // The event procedures reside in to the viewmodel. Bind the view model event procedures here.
 
@@ -92,7 +93,7 @@ namespace TupleGeo.Bootstrap.CssEditor.Views {
       }
       catch (Exception ex) {
         //AppEngine.Instance.LogError(ex, "ShellView - InitializeView()");
-        string error = "A data binding error has occured in 'ShellView'\r\n\r\n" +
+        string error = "A data binding error has occured in 'ComponentsView'\r\n\r\n" +
                          "Error message: " + ex.Message + "\r\n\r\n";
         if (ex.InnerException != null) {
           error += string.Format("Internal exception: {0}", ex.InnerException.Message);
@@ -111,7 +112,7 @@ namespace TupleGeo.Bootstrap.CssEditor.Views {
     /// </summary>
     public string ViewName {
       get {
-        return "ShellView";
+        return "ComponentsView";
       }
     }
 

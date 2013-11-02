@@ -1,13 +1,13 @@
 ﻿<!--Header
   Title Name       : ShellView.
   Member of        : TupleGeo.Bootstrap.CssEditor.exe
-  Description      : The Shell View  of the application.
+  Description      : The Shell View of the application.
   Created by       : 02/11/2013 03:18, Vasilis Vlastaras.
   Updated by       : 
   Version          : 1.0.0
   Contact Details  : 
   License          : 
-  Copyright        : GeoValues, 2013
+  Copyright        : TupleGeo, 2013
   
   Comments         : 
 -->
@@ -15,12 +15,69 @@
 <Window x:Class="TupleGeo.Bootstrap.CssEditor.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:views="clr-namespace:TupleGeo.Bootstrap.CssEditor.Views"
         Title="{Binding Path=Model.Caption, Mode=OneTime}"
         Height="600"
         Width="800"
         WindowStartupLocation="CenterScreen">
 
   <Grid Name="layoutGrid">
+
+    <ad:DockingManager x:Name="dockingManager">
+      <ad:DockingManager.Theme>
+        <ad:AeroTheme />
+        <!--<ad:VS2010Theme />-->
+      </ad:DockingManager.Theme>
+
+      <ad:LayoutRoot>
+        <ad:LayoutPanel Orientation="Horizontal">
+          <ad:LayoutAnchorablePaneGroup DockWidth="300"
+                                        Orientation="Vertical">
+            <ad:LayoutAnchorablePane>
+              <ad:LayoutAnchorable x:Name="componentsPane"
+                                   CanClose="False"
+                                   Title=" Bootstrap Components    ">
+                
+                <views:ComponentsView x:Name="componentsView" />
+                
+              </ad:LayoutAnchorable>
+            </ad:LayoutAnchorablePane>
+
+            <ad:LayoutAnchorablePane>
+              <ad:LayoutAnchorable x:Name="propertiesPane"
+                                   CanClose="False"
+                                   Title=" Properties    ">
+                
+                <views:PropertiesView x:Name="propertiesView" />
+
+              </ad:LayoutAnchorable>
+            </ad:LayoutAnchorablePane>
+          </ad:LayoutAnchorablePaneGroup>
+
+          <ad:LayoutDocumentPaneGroup>
+            <ad:LayoutDocumentPane>
+              <ad:LayoutDocument x:Name="htmlPageDocument"
+                                 Title=" Html Page    "
+                                 CanClose="False">
+                
+                <views:HtmlPageView x:Name="htmlPageView" />
+
+                <!--<mapview:MapView x:Name="mapView"
+                                 Visibility="Hidden" />-->
+
+                <!--<mapview:MapView x:Name="mapView"
+                                 Visibility="{Binding Path=Model.MapViewVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=true, NotifyOnValidationError=true}"/>-->
+
+              </ad:LayoutDocument>
+
+            </ad:LayoutDocumentPane>
+          </ad:LayoutDocumentPaneGroup>
+
+        </ad:LayoutPanel>
+
+      </ad:LayoutRoot>
+    </ad:DockingManager>
 
   </Grid>
   
