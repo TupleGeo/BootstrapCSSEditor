@@ -1,0 +1,27 @@
+﻿<!--Header
+  Title Name       : ShellView.
+  Member of        : TupleGeo.Bootstrap.CssEditor.exe
+  Description      : The Shell View  of the application.
+  Created by       : 02/11/2013 03:18, Vasilis Vlastaras.
+  Updated by       : 
+  Version          : 1.0.0
+  Contact Details  : 
+  License          : 
+  Copyright        : GeoValues, 2013
+  
+  Comments         : 
+-->
+  
+<Window x:Class="TupleGeo.Bootstrap.CssEditor.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Path=Model.Caption, Mode=OneTime}"
+        Height="600"
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+
+  <Grid Name="layoutGrid">
+
+  </Grid>
+  
+</Window>
