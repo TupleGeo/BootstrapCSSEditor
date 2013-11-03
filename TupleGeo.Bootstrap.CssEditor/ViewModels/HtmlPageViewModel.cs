@@ -24,6 +24,8 @@ using System.Windows.Data;
 using System.Windows.Input;
 using TupleGeo.Bootstrap.CssEditor.Models;
 using TupleGeo.Mvvm;
+using TupleGeo.Mvvm.Commands;
+using TupleGeo.Bootstrap.CssEditor.Engine;
 
 #endregion
 
@@ -47,11 +49,20 @@ namespace TupleGeo.Bootstrap.CssEditor.ViewModels {
     public HtmlPageViewModel(HtmlPageModel htmlPageModel)
       : base(htmlPageModel) {
 
+      InitializeCommands();
     }
 
     #endregion
 
     #region Public Properties
+
+    /// <summary>
+    /// Gets / Sets the load html page command.
+    /// </summary>
+    public ICommand LoadHtmlPageCommand {
+      get;
+      private set;
+    }
 
     #endregion
 
@@ -65,9 +76,54 @@ namespace TupleGeo.Bootstrap.CssEditor.ViewModels {
 
     #region Private Procedures
 
+    /// <summary>
+    /// Initializes the commands.
+    /// </summary>
+    private void InitializeCommands() {
+
+      // LoadHtmlPageCommand.
+      LoadHtmlPageCommand = new MvvmCommand(
+        (parameter) => {
+          LoadHtmlPageCommandAction(parameter);
+        },
+        (parameter) => {
+          return LoadHtmlPageCommandCanExecute(parameter);
+        }
+      );
+      // Add listeners here.
+      ((MvvmCommand)this.LoadHtmlPageCommand).AddListener<HtmlPageModel>(this.Model, m => m.Source);
+      //((MvvmCommand)this.Command1Command).AddObservableCollectionListener<MvvmModel>(this.Model.ObservableCollection1);
+      //((MvvmCommand)this.Command1Command).AddListener<MvvmModel>(this.Model, m => m.Property2);
+      
+    }
+
     #endregion
 
     #region Private Actions
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="parameter"></param>
+    private void LoadHtmlPageCommandAction(object parameter) {
+
+      TupleGeo.Bootstrap.CssEditor.Views.HtmlPageView view = 
+        (TupleGeo.Bootstrap.CssEditor.Views.HtmlPageView)Catalog.GetSingletonView(typeof(TupleGeo.Bootstrap.CssEditor.Views.HtmlPageView));
+      
+      view.webBrowser.Source = new Uri(this.Model.Source, UriKind.RelativeOrAbsolute);
+      //view.webBrowser.Navigate(this.Model.Source);
+      
+    }
+
+    /// <summary>
+    /// Determines whether the <see cref="LoadHtmlPageCommand"/> can execute.
+    /// </summary>
+    /// <param name="parameter">The parameter associated with the command.</param>
+    /// <returns>A <see cref="bool"/> with the result of the evaluation.</returns>
+    private bool LoadHtmlPageCommandCanExecute(object parameter) {
+      return this.Model.Source != null &&
+             this.Model.Source != string.Empty;
+    }
 
     #endregion
 

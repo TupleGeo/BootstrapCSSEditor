@@ -38,17 +38,34 @@ namespace TupleGeo.Bootstrap.CssEditor.Models {
     /// Initializes the HtmlPageModel.
     /// </summary>
     public HtmlPageModel() {
-
+      _source = "http://www.google.com";
     }
 
     #endregion
 
     #region Public Properties
 
+    private string _source;
+
+    /// <summary>
+    /// Gets / Sets the source of the html page.
+    /// </summary>
+    public string Source {
+      get {
+        return _source;
+      }
+      set {
+        if (_source != value) {
+          _source = value;
+          this.OnPropertyChanged(m => m.Source);
+        }
+      }
+    }
+
     #endregion
 
     #region Event Procedures
-
+    
     #endregion
 
     #region IModel Members
